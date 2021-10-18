@@ -7,12 +7,11 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 1f;// in tiles per second
     private float xMove;
     private float yMove;
+    Rigidbody2D body;
 
-
-
-    void Awake()
+    void Start()
     {
-
+        body = GetComponent<Rigidbody2D>();
     }
 
 
@@ -22,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
         xMove = Input.GetAxis("Horizontal") * timeScaledSpeed;
         yMove = Input.GetAxis("Vertical") * timeScaledSpeed;
-        transform.Translate(new Vector3(xMove, yMove, 0));
+        //body.AddForce(new Vector2(xMove, yMove));
+        body.velocity = new Vector2(xMove, yMove);
+
     }
 }
