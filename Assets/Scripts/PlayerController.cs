@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float movementSpeed = 1f;// in tiles per second
+    public float movementSpeed = 1f;
     private float xMove;
     private float yMove;
     Rigidbody2D body;
@@ -17,12 +17,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        float timeScaledSpeed = movementSpeed * Time.deltaTime;
+        float timeScaledSpeed = movementSpeed * Time.fixedDeltaTime;
 
         xMove = Input.GetAxis("Horizontal") * timeScaledSpeed;
         yMove = Input.GetAxis("Vertical") * timeScaledSpeed;
         //body.AddForce(new Vector2(xMove, yMove));
-        body.velocity = new Vector2(xMove, yMove);
+        body.MovePosition(new Vector2(gameObject.transform.position.x + xMove, gameObject.transform.position.y + yMove));
 
     }
 }
