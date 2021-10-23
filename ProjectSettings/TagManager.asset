@@ -50,3 +50,6 @@ TagManager:
   - name: Floating
     uniqueID: 420439293
     locked: 0
+  - name: UI
+    uniqueID: 794238859
+    locked: 0
