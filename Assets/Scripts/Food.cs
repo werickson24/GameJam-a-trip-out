@@ -6,8 +6,19 @@ public class Food : MonoBehaviour
 {
     public int hungerWorth = 0;
 
-    private void OnMouseDown()
+    private SpriteRenderer sprite;
+
+    private void Start()
+    {
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+    }
+    private void Update()
+    {
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         PlayerManager.instance.ChangeHunger(hungerWorth);
+        gameObject.SetActive(false);
     }
 }
